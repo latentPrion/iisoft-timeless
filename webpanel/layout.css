@@ -1,0 +1,160 @@
+
+body
+{
+	margin: 0px;
+	background: rgb(240, 237, 227)
+		url('images/jsc-v01_01.gif') repeat-x scroll top;
+
+	padding: 0px;
+}
+
+div#topBanner
+{
+	width: 625px;
+	margin-left: auto;
+	margin-right: auto;
+	margin: 0px auto 0px auto;
+	padding: 0px;
+}
+
+div#addrBar
+{
+	width: 625px;
+	margin: 0px auto 0px auto;
+	padding: 0px;
+}
+
+div#topMenu
+{
+	width: 625px;
+	height: 50px;
+	margin: 0px auto 0px auto;
+	padding: 0px;
+	background: url('images/jsc-v01_07.gif') no-repeat;
+
+	text-align: center;
+	word-spacing: 0.5em;
+}
+
+a.topMenu:link, a.topMenu:visited
+{
+	font-weight: bold;
+	text-decoration: none;
+	font-family: sans-serif;
+	color: #eeeece;
+}
+
+a.topMenu:hover, a.topMenu:active
+{
+	font-weight: bold;
+	font-family: sans-serif;
+	color: #f5f5ff;
+	cursor: help;
+}
+
+div#contentWrapper
+{
+	width: 625px;
+	background: url('images/jsc-v01_10.gif') repeat-y;
+	margin: 35px auto 0px auto;
+	padding: 0px;
+}
+
+div#contentTopBrace
+{
+	width: 100%;
+}
+
+div#contentBottomBrace
+{
+	width: 100%;
+}
+
+div#dbTableMenu
+{
+	vertical-align: top;
+	margin: 0px;
+	width: 100%;
+	padding: 0px 0px 0px 6px;
+}
+
+a.dbTableMenu:link, a.dbTableMenu:visited
+{
+	color: #434147;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size: 0.9em;
+}
+
+a.dbTableMenu:hover, a.dbTableMenu:active
+{
+	color: #535157;
+	text-decoration: underline overline;
+	font-family: sans-serif;
+	font-size: 0.9em;
+}
+
+div#copyrightFooter
+{
+	width: 752px;
+	height: 20px;
+	margin: 40px auto 0px auto;
+	background: url('images/copyright.png') no-repeat;
+	text-align: center;
+	padding-top: 15px;
+}
+
+span.copyright
+{
+	color: #eeeeff;
+	font-family: sans-serif;
+	font-size: 0.8em;
+}
+
+div#contentMain
+{
+	width: 100%;
+	margin: 0px;
+	padding-right: 4px;
+	border: 1px dotted #bebede;
+}
+
+table#contentDivider
+{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	border: 0px;
+}
+
+td#menuBar
+{
+	vertical-align: top;
+	width: 25%;
+}
+
+td#contentBar
+{
+	vertical-align: top;
+	width: 75%;
+	padding: 0px 8px 0px 5px;
+}
+
+span.normal
+{
+	font-size: 0.8em;
+	font-family: sans-serif;
+	font-weight: normal;
+}
+
+h1
+{
+	font-size: 1.2em;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+label:hover, label:active {
+	cursor: pointer;
+}
+

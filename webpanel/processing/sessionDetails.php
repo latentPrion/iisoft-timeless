@@ -1,0 +1,119 @@
+<?php
+	if (!isset($_REQUEST['id']))
+	{
+?>
+
+<meta http-equiv="refresh" content="1;../form.php?table=session&form=List&mode=details" />
+
+<?php
+		die();
+	};
+
+	$dbHandle = @odbc_connect("tmsdb", "", "");
+	if (!$dbHandle)
+	{
+		die ("Could not connect to DB!");
+	};
+
+	// Take the required session ID and project all columns from DB.
+	$resultHandle = odbc_exec(
+		$dbHandle,
+		"SELECT * "
+		. "FROM session "
+/*			. "INNER JOIN customer "
+			. "ON customer.id = session.customerId "  */
+		. "WHERE session.id = " . $_REQUEST['id']);
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+	<title>session #<?php echo $_REQUEST['id'] ?> :: Details :: Timeless</title>
+	<link rel="stylesheet" type="text/css" href="../layout.css" />
+	<link rel="icon" type="image/ico" href="../images/favicon.ico" />
+</head>
+
+<body>
+
+<div id="topBanner"><img src="../images/jsc-v01_02.gif" alt="" /></div>
+<div id="addrBar"><img src="../images/jsc-v01_04.png" alt="" /></div>
+<div id="topMenu">
+	<?php require('../menus/topMenu.php'); ?>
+</div>
+
+<div id="contentWrapper">
+	<div id="contentTopBrace"><img src="../images/jsc-v01_09.gif" alt="" /></div>
+	<table id="contentDivider">
+	<tr>
+	<td id="menuBar">
+		<div id="dbTableMenu"><?php require('../menus/dbTableMenu.php'); ?></div>
+	</td>
+	<td id="contentBar">
+		<div id="contentMain">
+			<table>
+<?php
+	if (odbc_fetch_row($resultHandle))
+	{
+?>
+			<tr>
+				<td>Id:</td>
+				<td><?php echo odbc_result($resultHandle, "id"); ?></td>
+			</tr>
+			<tr>
+				<td>Start Time:</td>
+				<td><?php echo odbc_result($resultHandle, "startTime"); ?></td>
+			</tr>
+			<tr>
+				<td>Session Type:</td>
+				<td>
+					<?php
+					if (odbc_result($resultHandle, "type") == 0) {
+						echo "Normal session";
+					} else {
+						echo "Temporary session";
+					};
+					?>
+				</td>
+			</tr>
+			<tr>
+				<td>PC ID:</td>
+				<td><?php echo odbc_result($resultHandle, "pcId"); ?></td>
+			</tr>
+			<tr>
+				<td>Forcibly closed?:</td>
+				<td>
+				<?php
+					if (odbc_result($resultHandle, "closed") == 0) {
+						echo "No";
+					} else {
+						echo "Yes!";
+					};
+				?>
+				</td>
+			</tr>
+			<tr>
+				<td>TimeRemaining:</td>
+				<td><?php echo odbc_result($resultHandle, "timeRemaining"); ?></td>
+			</tr>
+<?php
+	};
+
+	odbc_close($dbHandle);
+?>
+			</table>
+		</div>
+	</td>
+	</tr>
+	</table>
+	<div id="contentBottomBrace"><img src="../images/jsc-v01_11.gif" alt="" /></div>
+</div>
+
+<div id="copyrightFooter">
+	<span class="copyright">&copy; 2012 Joanna's Internet Cafe. All rights reserved.</span>
+</div>
+
+</body>
+
+</html>
+
